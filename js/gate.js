@@ -31,7 +31,25 @@ const hourInColombia = t => new Date(t).toLocaleTimeString('es-CO', {timeZone: '
       <p class="slip">Esto se abre a medianoche, hora de Colombia.</p>
       <p class="count" id="count" aria-live="polite"></p>
       <p class="fr">patience, mon amour</p>
-    </div></div>`);
+    </div>
+    <div class="crew" aria-hidden="true"><i class="heart">♥</i>${['nai', 'noe'].map(w => `<div class="walker" data-who="${w}"><img class="w-head" src="img/head-${w}.webp" alt="">${walkerBody(w)}</div>`).join('')}</div>
+  </div>`);
+  // the two of us pacing along the bottom of the screen while she waits: stop-motion steps, a heart at every turn
+  const crew = $('#gate .crew'), pace = gsap.timeline({repeat: -1});
+  const span = () => Math.max(0, innerWidth - crew.offsetWidth - 24);
+  pace.fromTo(crew, {x: 12}, {x: () => span() + 12, duration: 8, ease: 'steps(64)'})
+      .set(crew, {scaleX: -1}).fromTo('#gate .heart', {scale: 0, autoAlpha: 1, y: 0}, {scale: 1.4, y: -40, duration: .5, ease: 'back.out(3)'})
+      .to('#gate .heart', {autoAlpha: 0, duration: .3})
+      .to(crew, {x: 12, duration: 8, ease: 'steps(64)'})
+      .set(crew, {scaleX: 1}).fromTo('#gate .heart', {scale: 0, autoAlpha: 1, y: 0}, {scale: 1.4, y: -40, duration: .5, ease: 'back.out(3)'})
+      .to('#gate .heart', {autoAlpha: 0, duration: .3});
+  const legs = $$('#gate .walker').map((w, n) => {
+    const sw = {duration: .25, ease: 'none', yoyo: true, repeat: -1, delay: n*.12};
+    return [gsap.fromTo($('.leg-l', w), {rotation: -16, transformOrigin: '50% 0%'}, {rotation: 16, ...sw}),
+      gsap.fromTo($('.leg-r', w), {rotation: 16, transformOrigin: '50% 0%'}, {rotation: -16, ...sw}),
+      gsap.fromTo($('.arm-l', w), {rotation: 14, transformOrigin: '50% 0%'}, {rotation: -14, ...sw}),
+      gsap.to($('.w-head', w), {y: -5, rotation: n ? 4 : -4, ...sw})];
+  }).flat();
   const tick = () => {
     const left = OPEN_AT - now();
     if (left <= 0){ openGate(); return }
@@ -41,6 +59,7 @@ const hourInColombia = t => new Date(t).toLocaleTimeString('es-CO', {timeZone: '
   };
   function openGate(){
     const g = $('#gate');
+    pace.kill(); legs.forEach(t => t.kill());
     gsap.timeline({onComplete: () => { g.remove(); document.documentElement.classList.remove('closed'); ScrollTrigger.refresh(); dispatchEvent(new Event('gate-open')) }})
       .to('#gate .flap', {rotationX: 180, duration: .5, ease: 'power2.in'})
       .to('#gate .tape', {y: -40, rotation: 30, autoAlpha: 0, duration: .3}, 0)

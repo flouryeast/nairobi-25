@@ -290,3 +290,10 @@ html.closed,html.closed body{overflow:hidden;height:100%}
 .card{aspect-ratio:3/4.1}
 .card .b{justify-content:center;padding-top:28px;gap:5px}
 .card .b > .m{position:absolute;top:10px;left:12px;right:12px}
+/* our two little walkers on the closed screen */
+.gate .crew{position:absolute;left:0;bottom:max(12px,env(safe-area-inset-bottom,0px));width:min(46vw,190px);display:flex;align-items:flex-end;gap:4%;pointer-events:none}
+.gate .crew .walker{position:relative;width:48%}
+.gate .crew .heart{position:absolute;left:44%;top:-6%;font-style:normal;font-size:28px;color:var(--bouga);opacity:0;z-index:5}
+.gate{padding-bottom:max(170px,calc(150px + env(safe-area-inset-bottom,0px)))}
+.gate .crew{width:min(34vw,140px)}
+.gate-in{gap:14px}
