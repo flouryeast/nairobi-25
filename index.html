@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nairobi, 25</title>
+<meta name="description" content="Para Nairobi, en sus 25.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F2B83B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;600;700&family=Caveat:wght@500;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<button class="sound" id="sound" type="button" aria-label="Música" hidden>♪</button>
+
+<!-- ============ 0 · BARICHARA SE CONSTRUYE ============ -->
+<section class="scene" id="s-barichara">
+ <div class="stage" style="--bg:var(--mustard)">
+  <div class="frame">
+   <div class="a sun" style="left:50%;top:13%;width:46%"></div>
+   <div class="a cloud boil" data-art="cloud" style="left:-6%;top:27%;width:42%"></div>
+   <div class="a cloud boil" data-art="cloud" style="left:64%;top:39%;width:34%"></div>
+   <div class="a mtn far" data-art="ridge" data-fill="#D9B26A" data-seed="3" style="left:-10%;bottom:24%;width:120%;height:30%"></div>
+   <div class="a mtn mid" data-art="ridge" data-fill="#7FA36B" data-seed="8" style="left:-10%;bottom:20%;width:120%;height:22%"></div>
+   <div class="a town" id="town" style="left:-4%;bottom:9%;width:108%;height:30%"></div>
+   <div class="a ground" style="left:0;bottom:0;width:100%;height:10.5%"></div>
+   <div class="a title" style="left:6%;top:5%;width:88%">
+    <p class="kicker">Barichara · Santander · Colombia</p>
+    <h1 class="h1 write">Una vez,<br>en Barichara</h1>
+   </div>
+   <button class="a start" id="start" type="button" style="left:50%;bottom:13%"><span>♪</span> Activar sonido y micrófono</button>
+   <div class="a hint" style="left:0;bottom:2.5%;width:100%"><img src="img/kit/hand-point.webp" alt=""><span>desliza</span></div>
+
+   <figure class="a held" id="b-casa" style="left:10%;top:15%;width:58%">
+    <img class="ph" src="img/casa.webp" alt="El patio de la casa de Barichara">
+    <img class="tape" src="img/kit/tape.webp" alt="" style="left:-12%;top:-4%;width:42%;--r:-28deg">
+    <img class="hand pinch" src="img/kit/hand-pinch.webp" alt="">
+   </figure>
+   <figure class="a held" id="b-tienda" style="left:40%;top:38%;width:54%">
+    <img class="ph" src="img/tienda.webp" alt="La tienda de la casa, con la silla de mimbre">
+    <img class="tape" src="img/kit/tape.webp" alt="" style="right:-14%;top:-6%;width:40%;--r:24deg">
+    <img class="hand pinch" src="img/kit/hand-pinch.webp" alt="">
+   </figure>
+   <p class="a slip" id="b-t1" style="left:5%;top:66%;width:64%">Yo trabajaba en el Café El Ángel, en medio del pueblo…</p>
+   <p class="a fr" id="b-t2" style="left:8%;top:6%;width:84%">et je ne savais pas encore…</p>
+  </div>
+  <div class="tear" data-next="#F7F1E6"></div>
+ </div>
+</section>
+
+<!-- ============ 1 · Y LLEGASTE TÚ ============ -->
+<section class="scene" id="s-llegaste">
+ <div class="stage" style="--bg:#F7F1E6">
+  <div class="frame">
+   <div class="a wallshade"></div>
+   <p class="a kicker" style="left:6%;top:5%">Capítulo 1</p>
+   <h2 class="a h2 write" id="l-t1" style="left:6%;top:9%;width:88%">Y un día…</h2>
+   <div class="a doorway" id="door" style="left:17%;top:25%;width:66%;height:52%">
+    <div class="light"><img class="nai-tel" id="l-nai" src="img/nai-jolie.webp" alt="Nairobi bailando, con los rizos al aire"></div>
+    <div class="leaf l"><i></i><i></i></div><div class="leaf r"><i></i><i></i></div>
+   </div>
+   <div class="a" data-art="bouga" data-seed="4" style="left:8%;top:19%;width:46%"></div>
+   <div class="a" data-art="bouga" data-seed="9" style="left:52%;top:20%;width:40%"></div>
+   <div class="a zocalo"></div>
+   <p class="a h2 big-in" id="l-tu" style="left:8%;top:79%;width:84%">llegaste tú.</p>
+   <p class="a fr" id="l-fr" style="left:64%;top:89%;width:34%">toi.</p>
+
+   <div class="a street" id="street">
+    <div class="a sun" style="left:60%;top:8%;width:30%"></div>
+    <div class="a mtn" data-art="ridge" data-fill="#D9B26A" data-seed="31" style="left:-10%;bottom:18%;width:120%;height:34%"></div>
+    <div class="a mtn" data-art="ridge" data-fill="#7FA36B" data-seed="12" style="left:-10%;bottom:14%;width:120%;height:24%"></div>
+    <div class="a strip" id="strip"></div>
+    <div class="a cobbles"></div>
+    <div class="a steps" id="steps"></div>
+    <p class="a slip" id="l-t2" style="left:5%;top:7%;width:72%">Y de repente, estabas en mi vida.</p>
+    <p class="a slip" id="l-t3" style="left:22%;top:17%;width:72%">Caminábamos por Barichara, sin prisa.</p>
+    <p class="a fr" id="l-t4" style="left:8%;top:27%;width:80%">on avait tout le temps</p>
+    <div class="a walker" id="h-nai" data-who="nai" style="left:24%;bottom:7%;width:19%"><img class="w-head" src="img/head-nai.webp" alt="Tu cabeza, sonriendo entre los rizos"></div>
+    <div class="a walker" id="h-noe" data-who="noe" style="left:48%;bottom:7%;width:17%"><img class="w-head" src="img/head-noe.webp" alt="Mi cabeza, haciendo la mueca"></div>
+    <figure class="a held" id="l-tel" style="left:30%;top:24%;width:44%">
+     <img class="ph" src="img/nai-tel.webp" alt="La primera foto tuya en mi teléfono">
+     <img class="hand pinch" src="img/kit/hand-pinch.webp" alt="">
+    </figure>
+    <p class="a fr" id="l-fr3" style="left:4%;top:20%;width:40%">ta première photo dans mon téléphone</p>
+    <figure class="a held" id="l-relook" style="left:52%;top:30%;width:42%">
+     <img class="ph" src="img/noe-relook.webp" alt="Noé después de tu relooking">
+     <img class="hand pinch" src="img/kit/hand-pinch.webp" alt="">
+    </figure>
+    <p class="a fr" id="l-fr2" style="left:6%;top:36%;width:50%">…et tu m'as relooké</p>
+    <figure class="a held" id="l-velitas" style="left:14%;top:24%;width:72%">
+     <img class="ph" src="img/velitas.webp" alt="Un beso frente a la catedral, la noche de velitas">
+     <img class="tape" src="img/kit/tape.webp" alt="" style="left:30%;top:-7%;width:40%;--r:-3deg">
+     <img class="hand pinch" src="img/kit/hand-pinch.webp" alt="">
+    </figure>
+    <p class="a slip" id="l-t5" style="left:8%;top:76%;width:70%">La noche de velitas.</p>
+   </div>
+  </div>
+  <div class="tear" data-next="#8FC3E6"></div>
+ </div>
+</section>
+
+<!-- ============ 2 · LA MOTO ============ -->
+<section class="scene" id="s-moto">
+ <div class="stage" style="--bg:var(--sky)">
+  <div class="frame">
+   <div class="a cloud boil" data-art="cloud" style="left:58%;top:30%;width:40%"></div>
+   <div class="a mtn" data-art="ridge" data-fill="#7F9DB5" data-seed="21" style="left:-10%;bottom:26%;width:120%;height:26%"></div>
+   <div class="a mtn" data-art="ridge" data-fill="#A9C7A0" data-seed="5" style="left:-10%;bottom:16%;width:120%;height:20%"></div>
+   <svg class="a road" viewBox="0 0 100 40" preserveAspectRatio="none" style="left:0;bottom:0;width:100%;height:30%"><path d="M-5 32 C30 18 60 34 105 14" fill="none" stroke="#FBF7EE" stroke-width="14"/><path d="M-5 32 C30 18 60 34 105 14" fill="none" stroke="#EE6A2B" stroke-width="10"/></svg>
+   <p class="a kicker" style="left:6%;top:5%">Capítulo 2 · el plan</p>
+   <h2 class="a h2 write" id="m-title" style="left:6%;top:9%;width:90%">Una moto, dos mochilas, ningún plan.</h2>
+   <div class="a moto-box" id="moto" style="left:2%;bottom:9%;width:56%">
+    <img class="sticker" src="img/moto.webp" alt="La Suzuki AX4 negra con rayas verdes, cargada">
+    <span class="bag" style="left:0%;top:24%">mochila</span>
+    <span class="bag" style="left:22%;top:14%">mochila</span>
+    <span class="bag" style="left:8%;top:4%">carpa</span>
+    <span class="bag" style="left:30%;top:28%">olla</span>
+   </div>
+   <div class="a recipe" id="m-recipe" style="left:46%;top:31%;width:51%">
+    <p class="k">receta para un viaje</p>
+    <p class="ing">1 Suzuki AX4</p><p class="ing">2 mochilas</p><p class="ing">mucho coraje</p><p class="ing">mucha locura</p>
+   </div>
+   <p class="a fr big" id="m-fr2" style="left:8%;top:31%;width:80%">On part ?</p>
+  </div>
+  <div class="tear" data-next="#BFD7E0"></div>
+ </div>
+</section>
+
+<!-- ============ 3 · LA RUTA (mapa) ============ -->
+<section class="scene" id="s-ruta">
+ <div class="stage" style="--bg:#BFD7E0">
+  <div class="cam" id="cam"><div class="plane" id="plane"></div></div>
+  <div class="frame frame-ui">
+   <div class="a map-title" id="r-title" style="left:6%;top:5%;width:88%">
+    <p class="kicker">Capítulo 3 · la ruta</p>
+    <h2 class="h2">Barichara → ¿hasta dónde?</h2>
+   </div>
+   <div class="a caps" id="caps"></div>
+   <div class="a odo" id="odo"><span>km</span><b>0</b></div>
+  </div>
+  <div class="tear" data-next="#E3CFA6"></div>
+ </div>
+</section>
+
+<!-- ============ 4 · PARÍS ============ -->
+<section class="scene" id="s-paris">
+ <div class="stage" style="--bg:var(--steel)">
+  <div class="frame">
+   <div class="a sun pale" style="left:6%;top:16%;width:34%"></div>
+   <p class="a kicker" style="left:6%;top:4%">Capítulo 4 · Francia</p>
+   <img class="a swallow" id="p-swallow" src="img/kit/swallow.webp" alt="" style="left:40%;top:16%;width:22%">
+   <div class="a" id="p-eiffel" data-art="eiffel" style="left:58%;bottom:17%;width:34%;height:56%"></div>
+   <div class="a skyline" id="skyline" style="left:-4%;bottom:0;width:108%;height:30%"></div>
+   <p class="a slip" id="p-t0" style="left:6%;top:9%;width:72%">Y luego, la vida en Francia.</p>
+   <figure class="a snap" style="left:4%;top:15%;width:40%;--r:-6deg"><img class="ph" src="img/nai-paris.webp" alt="Tu llegada a París"><span class=tag>París</span></figure>
+   <figure class="a snap" style="left:50%;top:13%;width:40%;--r:5deg"><img class="ph" src="img/photomaton.webp" alt="Un beso en el fotomatón"></figure>
+   <figure class="a snap" style="left:8%;top:40%;width:36%;--r:4deg"><img class="ph" src="img/arco.webp" alt="El Arco del Triunfo"></figure>
+   <figure class="a snap" style="left:52%;top:38%;width:44%;--r:-4deg"><img class="ph sticker" src="img/eiffel.webp" alt="Los dos frente a la torre Eiffel"></figure>
+   <figure class="a snap" style="left:2%;top:22%;width:44%;--r:-3deg"><img class="ph" src="img/nieve.webp" alt="Tú en la nieve"><span class=tag>la nieve</span></figure>
+   <figure class="a snap" style="left:54%;top:26%;width:40%;--r:6deg"><img class="ph" src="img/ski.webp" alt="Tú esquiando"></figure>
+   <figure class="a snap" style="left:6%;top:30%;width:44%;--r:3deg"><img class="ph" src="img/camello.webp" alt="Tú en camello en Marruecos"><span class=tag>Marruecos</span></figure>
+   <figure class="a snap" style="left:52%;top:44%;width:40%;--r:-5deg"><img class="ph" src="img/maroc-cafe.webp" alt="Yo en un café en Marruecos"></figure>
+   <figure class="a snap" style="left:24%;top:36%;width:50%;--r:2deg"><img class="ph" src="img/feria.webp" alt="Los dos en la feria"><span class=tag>la feria</span></figure>
+   <figure class="a held" id="p-mairie" style="left:6%;top:12%;width:66%">
+    <img class="ph" src="img/mairie.webp" alt="Saliendo de la alcaldía del 14, bajo una lluvia de pétalos">
+    <img class="tape" src="img/kit/tape.webp" alt="" style="left:30%;top:-5%;width:40%;--r:4deg">
+    <img class="hand pinch" src="img/kit/hand-pinch.webp" alt="">
+   </figure>
+   <div class="a stamp" id="p-stamp" style="left:58%;top:50%;width:36%"><span>Mairie du XIV<sup>e</sup></span><b>Oui</b><span>21 · 05 · 2025</span></div>
+   <p class="a slip" id="p-t1" style="left:6%;top:68%;width:72%">Nos casamos en París. Tú, yo, y un «oui» con acento.</p>
+   <p class="a slip" id="p-t2" style="left:20%;top:12%;width:74%">Luego, una mudanza de París… a París.</p>
+   <div class="a win" id="p-w1" style="left:6%;top:30%"></div>
+   <div class="a win" id="p-w2" style="left:72%;top:42%"></div>
+   <div class="a box" style="left:8%;top:33%;width:16%"><span>libros</span></div>
+   <div class="a box" style="left:8%;top:33%;width:14%"><span>frágil</span></div>
+   <div class="a box" style="left:8%;top:33%;width:15%"><span>cocina</span></div>
+   <p class="a fr" id="p-fr" style="left:14%;top:22%;width:80%">cartons, cartons, cartons…</p>
+  </div>
+  <div class="tear" data-next="#E0457B"></div>
+ </div>
+</section>
+
+<!-- ============ 5 · LA BODA ============ -->
+<section class="scene" id="s-boda">
+ <div class="stage" style="--bg:var(--bouga)">
+  <div class="frame">
+   <div class="a sun" style="left:54%;top:30%;width:40%;--sun:#F2B83B"></div>
+   <div class="a mtn" id="bo-far" data-art="ridge" data-fill="#D2582E" data-seed="13" style="left:-10%;bottom:20%;width:120%;height:30%"></div>
+   <div class="a mtn" id="bo-near" data-art="canyon" data-seed="17" style="left:-10%;bottom:0;width:120%;height:28%"></div>
+   <div class="a picado" id="picado" style="left:-4%;top:-1%;width:108%"></div>
+   <p class="a kicker light" style="left:6%;top:9%">Capítulo 5 · la boda</p>
+   <h2 class="a h2 light write" id="bo-title" style="left:6%;top:13%;width:90%">Sí, otra vez.<br>En Barichara.</h2>
+   <figure class="a held" id="bo-0" style="left:3%;top:27%;width:94%">
+    <img class="ph" src="img/boda-abrazo.webp" alt="El abrazo de los novios, con todos los invitados aplaudiendo detrás">
+    <img class="tape" src="img/kit/tape.webp" alt="" style="left:-6%;top:-8%;width:30%;--r:-24deg">
+    <img class="hand pinch" src="img/kit/hand-pinch.webp" alt="">
+   </figure>
+   <img class="a ph" id="bo-1" src="img/boda-p.webp" alt="Los novios junto al tuk-tuk lleno de flores" style="left:2%;top:53%;width:50%">
+   <img class="a ph" id="bo-2" src="img/chemin.webp" alt="El tuk-tuk de flores en el camino" style="left:66%;top:27%;width:31%">
+   <img class="a sticker" id="bo-3" src="img/jeep.webp" alt="Los novios con el jeep en la plaza" style="left:46%;top:52%;width:52%">
+   <p class="a slip" id="bo-t1" style="left:5%;top:73%;width:80%">Serena del Viento, al borde del cañón, con todos los nuestros.</p>
+   <p class="a mono-date" id="bo-date" style="left:5%;top:86%">15 · 08 · 2026</p>
+   <p class="a fr light" id="bo-fr" style="left:42%;top:24%;width:56%">deuxième « oui », même frisson</p>
+   <img class="a confetti" src="img/kit/confetti.webp" alt="" style="left:2%;top:40%;width:22%">
+   <img class="a confetti" src="img/kit/confetti.webp" alt="" style="left:74%;top:60%;width:20%">
+   <img class="a confetti" src="img/kit/confetti.webp" alt="" style="left:2%;top:66%;width:16%">
+  </div>
+  <div class="tear" data-next="#221C2B"></div>
+ </div>
+</section>
+
+<!-- ============ 6 · LEJOS ============ -->
+<section class="scene" id="s-lejos">
+ <div class="stage split">
+  <div class="half l"></div><div class="half r"></div>
+  <div class="frame">
+   <div class="a" data-art="church" style="left:4%;bottom:6%;width:28%;height:24%"></div>
+   <div class="a" data-art="eiffel" style="left:70%;bottom:6%;width:22%;height:34%"></div>
+   <p class="a slip" id="j-t1" style="left:5%;top:7%;width:80%">Y luego yo volví a París…</p>
+   <p class="a slip" id="j-t2" style="left:15%;top:17%;width:80%">…y tú te quedaste en Barichara.</p>
+   <svg class="a" id="j-trail" viewBox="0 0 100 40" preserveAspectRatio="none" style="left:10%;top:32%;width:80%;height:14%"><path d="M2 36 Q50 -14 98 30" fill="none" stroke="#1B1A17" stroke-width=".8" stroke-dasharray="2 2" vector-effect="non-scaling-stroke"/></svg>
+   <img class="a swallow" id="j-swallow" src="img/kit/swallow.webp" alt="" style="left:4%;top:38%;width:18%">
+   <div class="a clock" id="j-c1" data-tz="America/Bogota" style="left:6%;top:48%;width:36%"><div class="dial"><i class="hh"></i><i class="mm"></i></div><span>Barichara</span><b></b></div>
+   <div class="a clock" id="j-c2" data-tz="Europe/Paris" style="left:58%;top:48%;width:36%"><div class="dial"><i class="hh"></i><i class="mm"></i></div><span>París</span><b></b></div>
+   <p class="a fr" id="j-fr" style="left:10%;top:72%;width:80%">sept heures et un océan</p>
+   <p class="a slip" id="j-t3" style="left:10%;top:56%;width:80%">Y entonces llegó el 22 de octubre.</p>
+   <div class="a sheet" id="j-sheet" style="left:30%;top:20%;width:40%"><span>octubre</span><b>22</b><span>2026</span></div>
+  </div>
+  <div class="tear" data-next="#221C2B"></div>
+ </div>
+</section>
+
+<!-- ============ 7 · HOY: LA TORTA ============ -->
+<section class="cumple" id="cumple">
+ <div class="stars" aria-hidden="true"></div>
+ <div class="inner">
+  <p class="kicker">22 · 10 · 2026</p>
+  <h2 class="h2">Hoy cumples 25.</h2>
+  <p class="fr">fais un vœu…</p>
+  <div class="cake" id="cake" aria-hidden="true">
+   <div class="top"><div class="candles" id="candles"></div></div>
+   <div class="tier t1"></div><div class="tier t2"></div><div class="tier t3"></div>
+   <div class="plate"></div>
+  </div>
+  <p class="hint-sm" id="cake-hint">pide un deseo y sopla las velas</p>
+  <div class="blow-row">
+   <button class="btn" id="blow" type="button">Soplar las velas</button>
+   <button class="btn ghost" id="mic" type="button">Soplar al micrófono</button>
+  </div>
+  <div class="reveal" id="reveal" hidden>
+   <p class="r1">Nos perdimos la ocasión de celebrar tus 25 juntos.</p>
+   <p class="r2">Así que…</p>
+   <p class="r3">te regalo <b>25 citas</b> para recuperar el tiempo.</p>
+   <p class="fr r4">25 séances de rattrapage, à Paris, avec moi.</p>
+   <p class="r5">Una por una, mes a mes, desde noviembre.</p>
+   <button class="btn r6" id="go-citas" type="button">Ver mis 25 citas ↓</button>
+  </div>
+ </div>
+</section>
+
+<!-- ============ 8 · LAS 25 CITAS EN PARÍS ============ -->
+<section class="citas" id="citas" hidden>
+ <header class="citas-head">
+  <img class="swallow" src="img/kit/swallow.webp" alt="">
+  <p class="kicker">noviembre 2026 → octubre 2027</p>
+  <h2 class="h2">Vuelve a París.<br>Te espera un año entero.</h2>
+  <p class="fr">toca una carta pour la retourner</p>
+ </header>
+ <div class="trail" id="trail">
+  <svg class="trail-svg" id="trail-svg" aria-hidden="true"><path id="trail-path" fill="none"/></svg>
+  <div class="bike" id="bike" aria-hidden="true"></div>
+ </div>
+ <footer class="fin" id="fin">
+  <p class="h2">Y esto es solo el comienzo.</p>
+  <p class="fr">Joyeux anniversaire, mon amour.</p>
+  <p class="sign">— Noé</p>
+ </footer>
+ <div class="counter" id="counter"><b>0</b>/25</div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/map-data.js"></script>
+<script src="js/citas-data.js"></script>
+<script src="js/art.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/gate.js"></script>
+<script src="js/scenes.js"></script>
+<script src="js/finale.js"></script>
+</body>
+</html>
