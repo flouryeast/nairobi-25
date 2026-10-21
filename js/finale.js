@@ -146,6 +146,16 @@ function openCitas(){
 }
 
 // optional music: drop a file at audio/cancion.mp3 and the ♪ button appears; it starts on the first tap anywhere
+// a discreet shortcut to the end, offered only from 4 a.m. (Colombia) so the first visit is the whole story;
+// it leads to the cake if the candles are still lit, to the citas once they are revealed
+const SKIP_FROM = OPEN_AT + 4*HOUR, skip = $('#skip');
+let nearEnd = false;
+function showSkip(){ skip.hidden = now() < SKIP_FROM || nearEnd }
+skip.addEventListener('click', () => { if (revealed) openCitas(); else $('#cumple').scrollIntoView({behavior: 'smooth'}) });
+new IntersectionObserver(es => { nearEnd = es.some(e => e.isIntersecting); showSkip() }).observe($('#cumple'));
+new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)){ nearEnd = true; showSkip() } }).observe($('#citas'));
+showSkip(); setInterval(showSkip, 30000);
+
 const song = new Audio('audio/cancion.mp3'); song.loop = true;
 song.addEventListener('canplaythrough', () => { $('#sound').hidden = false }, {once: true});
 song.load();
