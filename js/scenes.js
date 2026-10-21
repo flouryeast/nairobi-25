@@ -110,20 +110,22 @@ const S2 = scene('s-moto', (tl, el) => {
 
 // ================= 3 · LA RUTA: a paper map on a table, photos popping up like a pop-up book =================
 const M = window.MAP, plane = $('#plane');
-const GEO = {bogota:[-74.07,4.71], barichara:[-73.22,6.64], quito:[-78.5,-0.2], huanchaco:[-79.12,-8.08], huaraz:[-77.53,-9.53], huacachina:[-75.76,-14.09], nazca:[-74.94,-14.83],
+const GEO = {bogota:[-74.07,4.71], barichara:[-73.22,6.64], quito:[-78.5,-0.2], huanchaco:[-79.12,-8.08], huaraz:[-77.53,-9.53], huacachina:[-75.76,-14.09], nazca:[-74.94,-14.83], montanita:[-80.75,-1.93], mancora:[-81.05,-4.10], purmamarca:[-65.50,-23.74],
   cusco:[-71.97,-13.53], lares:[-72.05,-13.1], puno:[-70.02,-15.84], lapaz:[-68.15,-16.5], uyuni:[-66.82,-20.46], tucuman:[-65.2,-26.82], baires:[-58.38,-34.6], montevideo:[-56.16,-34.9]};
 const ROUTE = [
   {k:'bogota'},
-  {k:'quito', kick:'Ecuador', t:'Los Andes', p:'Niebla, curvas y frío. La moto subía como podía.', img:['img/ecuador.webp'], side:1},
+  {k:'montanita', kick:'Ecuador · la costa', t:'Voluntariado y surf', p:'Trabajamos de voluntarios frente al mar, surfeamos, y cada tarde el sol se hundía en el Pacífico.', img:['img/atardecer.webp', 'img/ecuador.webp'], side:1},
+  {k:'mancora', kick:'Perú · Máncora', t:'El primer ceviche', p:'Arena, sol y tu primer ceviche peruano.', fr:'le citron, partout', img:['img/mancora.webp'], side:1},
   {k:'huanchaco', kick:'Perú · la costa', t:'El Pacífico', p:'Neopreno, totora y una tabla más grande que tú.', img:['img/surf.webp'], side:-1},
-  {k:'huaraz', kick:'Perú · la sierra', t:'La laguna', p:'Ese turquesa no tenía filtro.', img:['img/laguna.webp'], side:1},
+  {k:'huaraz', kick:'Perú · Cordillera Blanca', t:'Ramen a 4 600 m', p:'Fideos instantáneos frente a una laguna turquesa, a 4 600 metros. El mejor restaurante del mundo.', img:['img/ramen4600.webp'], side:1},
   {k:'huacachina', kick:'Perú · el desierto', t:'Huacachina', p:'Dunas al atardecer y arena hasta en las orejas.', img:['img/dune.webp', 'img/allonges.webp'], side:-1},
   {k:'nazca', kick:'Perú · Nazca', t:'La moto dijo basta', p:'Se rompió en pleno desierto. Ni un taller a la vista.', fr:'et maintenant ?', brk:true},
   {k:'cusco', kick:'Nazca → Cusco', t:'16 horas de camión', p:'Subimos a Cusco en la caja de un camión, con la moto atrás y el cielo lleno de estrellas. Allá la arreglamos y volvimos a arrancar.', fr:'les étoiles les plus folles de ma vie', img:['img/camion.webp', 'img/panne.webp'], side:1, leg:'truck', fix:true},
-  {k:'lares', kick:'Perú', t:'Cusco y Lares', p:'Escaleras, tejas, y el camino de Lares hacia las nubes.', img:['img/cusco.webp', 'img/lares.webp'], side:-1},
-  {k:'puno', kick:'Titicaca', t:'El altiplano', p:'Rumbo al Titicaca, a casi 4 000 metros, con el sol de frente.', img:['img/road.webp'], side:1},
+  {k:'lares', kick:'Perú · trek de Lares', t:'La noche más fría', p:'Casi nos morimos de frío durmiendo afuera… y terminamos en la casa de una familia, junto al fogón.', fr:'on a eu chaud au cœur', img:['img/fogon.webp', 'img/lares.webp'], side:-1},
+  {k:'puno', kick:'Titicaca', t:'El lago, en banda', p:'En lancha por el Titicaca con Brian, Arnau, Sofía y Jazmina.', img:['img/titicaca.webp', 'img/road.webp'], side:1},
   {k:'lapaz', kick:'Bolivia', t:'La Paz', p:'Paraguas en el cielo y fiesta en la calle.', img:['img/lapaz.webp'], side:-1},
   {k:'uyuni', kick:'Bolivia', t:'Uyuni', p:'El cielo en el suelo.', fr:'une moto sur un miroir', img:['img/uyuni-p.webp'], side:1},
+  {k:'purmamarca', kick:'Argentina · Jujuy', t:'Purmamarca', p:'Los cerros de colores, y nosotros con los brazos al aire.', img:['img/purmamarca.webp'], side:-1},
   {k:'tucuman', kick:'Argentina', t:'En tren', p:'De Tucumán a Buenos Aires, de un tirón.', art:'train', side:1},
   {k:'baires', pass:true, leg:'train'},
   {k:'montevideo', kick:'Uruguay', t:'Montevideo', p:'Unos meses en Montevideo, en una bici roja de las de antes.', fr:'la vie en vélo rouge', img:['img/salvo.webp', 'img/bici.webp'], side:1},
@@ -179,7 +181,7 @@ ROUTE.forEach((r, i) => {
   if (!i || r.pass) return;
   const [x, y] = pt(r.k);
   const lab = document.createElement('div'); lab.className = 'pin-lab'; lab.style.left = x + 'px'; lab.style.top = y + 'px';
-  lab.textContent = {quito:'Quito', nazca:'Nazca', huanchaco:'Huanchaco', huaraz:'Huaraz', huacachina:'Huacachina', cusco:'Cusco', lares:'Lares', puno:'Titicaca', lapaz:'La Paz', uyuni:'Uyuni', tucuman:'Tucumán', montevideo:'Montevideo', barichara:'Colombia'}[r.k];
+  lab.textContent = {montanita:'Montañita', mancora:'Máncora', purmamarca:'Purmamarca', nazca:'Nazca', huanchaco:'Huanchaco', huaraz:'Laguna 69', huacachina:'Huacachina', cusco:'Cusco', lares:'Lares', puno:'Titicaca', lapaz:'La Paz', uyuni:'Uyuni', tucuman:'Tucumán', montevideo:'Montevideo', barichara:'Colombia'}[r.k];
   plane.appendChild(lab);
   if (r.end || r.brk) return;
   const p = document.createElement('div'); p.className = 'pop';
