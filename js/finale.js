@@ -141,7 +141,10 @@ function openCitas(){
   $$('.month span', sec).forEach(m => gsap.from(m, {scale: 2.2, autoAlpha: 0, rotation: -18, duration: .35, ease: 'power4.in', scrollTrigger: {trigger: m, start: 'top 88%'}}));
   gsap.from('#fin > *', {y: 30, autoAlpha: 0, stagger: .4, duration: .7, scrollTrigger: {trigger: '#fin', start: 'top 70%'}});
   ScrollTrigger.refresh();
-  addEventListener('resize', () => { buildTrail(); ScrollTrigger.refresh() });
+  // iOS fires 'resize' whenever the address bar slides in or out while scrolling; re-measuring the pinned scenes then makes
+  // the page jump back up (to the map). Only a real width change (rotation) is worth a refresh.
+  let lastW = innerWidth;
+  addEventListener('resize', () => { if (innerWidth === lastW) return; lastW = innerWidth; buildTrail(); ScrollTrigger.refresh() });
   requestAnimationFrame(() => sec.scrollIntoView({behavior: 'smooth'}));
 }
 
