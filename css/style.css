@@ -268,3 +268,8 @@ html.closed,html.closed body{overflow:hidden;height:100%}
 #bo-1,#bo-2,#bo-3,#bo-t1,#bo-date,#bo-fr,#s-boda .confetti{z-index:3}
 .linkish{background:none;border:none;padding:6px;color:var(--white);opacity:.75;font-family:var(--f-mono);font-size:13px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .linkish:focus-visible{outline:2px solid var(--mustard);outline-offset:2px}
+/* Safari draws a face's positioned children even when the face is turned away: switch each face off at the half-turn instead */
+.card .f,.card .b{transform:translateZ(.1px);transition:visibility 0s linear .3s}
+.card .b{transform:rotateY(180deg) translateZ(.1px);visibility:hidden}
+.card.flip .f{visibility:hidden}
+.card.flip .b{visibility:visible}
