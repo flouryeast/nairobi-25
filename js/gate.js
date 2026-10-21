@@ -3,11 +3,12 @@
 //   #prueba          everything open, all 25 cards
 //   #prueba-antes    the closed screen, as if it were 23:58 the evening before
 //   #prueba-3        3 a.m. on the 22nd: site open, cards 1 to 4 open
+//   #prueba-notif    like #prueba, but also sends the phone notifications (marked [test])
 const OPEN_AT = Date.UTC(2026, 9, 22, 5, 0, 0);   // 00:00 in Bogotá (UTC−5, no daylight saving)
 const HOUR = 3600e3;
 const TEST = (() => {
   const h = location.hash.slice(1);
-  if (h === 'prueba') return OPEN_AT + 25*HOUR - Date.now();
+  if (h === 'prueba' || h === 'prueba-notif') return OPEN_AT + 25*HOUR - Date.now();
   if (h === 'prueba-antes') return OPEN_AT - 2*60e3 - Date.now();
   const m = h.match(/^prueba-(\d{1,2})$/); if (m) return OPEN_AT + (+m[1])*HOUR + 60e3 - Date.now();
   return 0;

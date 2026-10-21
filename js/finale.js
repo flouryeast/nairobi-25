@@ -12,11 +12,11 @@ const cs = $('#candles');
   return n + count;
 }, 0);
 const candles = $$('.candle', cs);
-let revealed = false;
+let revealed = false, blownBy = 'en touchant les bougies une à une';
 const lit = () => candles.filter(c => !c.classList.contains('out'));
 function snuff(c){ if (c.classList.contains('out')) return; c.classList.add('out'); if (!lit().length) setTimeout(reveal, 700) }
 candles.forEach(c => c.addEventListener('click', () => snuff(c)));
-$('#blow').addEventListener('click', () => { const l = lit(); l.forEach((c, i) => setTimeout(() => snuff(c), REDUCE ? 0 : i*60 + R(0, 60))) });
+$('#blow').addEventListener('click', () => { blownBy = 'avec le lien « le micro ne marche pas »'; const l = lit(); l.forEach((c, i) => setTimeout(() => snuff(c), REDUCE ? 0 : i*60 + R(0, 60))) });
 
 // blowing for real: the mic level puffs candles out one by one while it stays loud.
 // The microphone is asked for once, from the button on the first screen (or the one under the cake); listening starts when the cake is on screen.
@@ -25,13 +25,13 @@ async function askMic(){
   if (MIC) return MIC;
   const stream = await navigator.mediaDevices.getUserMedia({audio: true});
   const ac = new (window.AudioContext || window.webkitAudioContext)();
-  MIC = {stream, ac}; return MIC;
+  MIC = {stream, ac}; ping('mic', 'Elle a activé le micro.', {tags: 'microphone'}); return MIC;
 }
 function listen(){
   if (!MIC || listening || !lit().length) return; listening = true;
   const {stream, ac} = MIC; ac.resume();
   const an = ac.createAnalyser(); an.fftSize = 512; ac.createMediaStreamSource(stream).connect(an); const buf = new Uint8Array(an.fftSize);
-  $('#mic').textContent = 'Sopla fuerte…'; $('#mic').disabled = true;
+  $('#mic').textContent = 'Sopla fuerte…'; $('#mic').disabled = true; blownBy = 'en soufflant dans le micro 🌬️';
   const loop = () => {
     an.getByteTimeDomainData(buf); let s = 0; for (const v of buf) s += ((v-128)/128)**2;
     if (Math.sqrt(s/buf.length) > .12){ const l = lit(); for (let k=0;k<Math.min(l.length, 2);k++) snuff(l[Math.floor(Math.random()*l.length)]) }
@@ -53,6 +53,7 @@ $('#start').addEventListener('click', async e => {
 
 function reveal(){
   if (revealed) return; revealed = true;
+  ping('candles', `Elle a soufflé ses 25 bougies, ${blownBy}. 🎉`, {priority: '5', tags: 'tada'});
   $('.blow-row').hidden = true; $('#cake-hint').hidden = true;
   burst();
   const r = $('#reveal'); r.hidden = false;
@@ -91,7 +92,7 @@ CITAS.forEach(c => {
   b.dataset.n = c.n;
   b.addEventListener('click', () => {
     if (b.classList.contains('locked')){ gsap.fromTo(b, {x: -6}, {x: 0, duration: .4, ease: 'elastic.out(4, .3)'}); return }
-    b.classList.toggle('flip'); b.setAttribute('aria-label', b.classList.contains('flip') ? `Cita ${c.n}: ${c.es}` : `Cita ${c.n}, ${MESES[m-1]}`); count();
+    b.classList.toggle('flip'); if (b.classList.contains('flip')) ping('card-' + c.n, `Carte ${c.n} retournée : ${c.es}`, {tags: 'flower_playing_cards'}); b.setAttribute('aria-label', b.classList.contains('flip') ? `Cita ${c.n}: ${c.es}` : `Cita ${c.n}, ${MESES[m-1]}`); count();
   });
   row.appendChild(b);
 });
@@ -135,7 +136,7 @@ function rideTo(p){
 $('#go-citas').addEventListener('click', openCitas);
 function openCitas(){
   const sec = $('#citas'); if (!sec.hidden){ sec.scrollIntoView({behavior: 'smooth'}); return }
-  sec.hidden = false;
+  sec.hidden = false; ping('citas', 'Elle a découvert ses 25 citas 💌', {priority: '4', tags: 'love_letter'});
   buildTrail(); rideTo(0);
   ScrollTrigger.create({trigger: trail, start: 'top 70%', end: 'bottom 70%', onUpdate: s => rideTo(s.progress)});
   ScrollTrigger.create({trigger: sec, start: 'top 60%', end: 'bottom bottom', onToggle: s => $('#counter').classList.toggle('on', s.isActive)});
