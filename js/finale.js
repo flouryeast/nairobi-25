@@ -40,7 +40,8 @@ function listen(){
   loop();
 }
 $('#mic').addEventListener('click', async e => {
-  try { await askMic(); listen() } catch { e.currentTarget.textContent = 'Sin micrófono: toca las velas'; e.currentTarget.disabled = true }
+  const btn = e.currentTarget;   // read it before the await: currentTarget is gone afterwards
+  try { await askMic(); listen() } catch { btn.textContent = 'Sin micrófono: usa el enlace de abajo'; btn.disabled = true }
 });
 new IntersectionObserver(es => es.forEach(x => x.isIntersecting && listen()), {threshold: .5}).observe($('#cake'));
 
@@ -84,8 +85,9 @@ CITAS.forEach(c => {
   const [y, m] = c.mes.split('-').map(Number);
   const b = document.createElement('button'); b.type = 'button'; b.className = 'card'; b.setAttribute('aria-label', `Cita ${c.n}, ${MESES[m-1]}: toca para descubrirla`);
   b.innerHTML = `<div class="in"><div class="f"><span class="m">${MESES[m-1].slice(0, 3)} · ${String(y).slice(2)}</span><span class="num">${c.n}</span><span class="q">¿qué será?</span></div>
-    <div class="b"><span class="m">cita ${c.n} · ${MESES[m-1]}</span>${ICONS[c.n] || ''}<strong></strong><span class="d">${c.date || ''}</span></div></div>`;
-  $('strong', b).textContent = c.es;
+    <div class="b"><span class="m">cita ${c.n} · ${MESES[m-1]}</span>${ICONS[c.art] || ''}<strong></strong><span class="desc"></span></div></div>`;
+  $('strong', b).textContent = c.es; $('.desc', b).textContent = c.desc;
+  if (c.desc.length > 95) b.classList.add('long');
   b.dataset.n = c.n;
   b.addEventListener('click', () => {
     if (b.classList.contains('locked')){ gsap.fromTo(b, {x: -6}, {x: 0, duration: .4, ease: 'elastic.out(4, .3)'}); return }
@@ -152,11 +154,10 @@ function openCitas(){
 // a discreet shortcut to the end, offered only from 4 a.m. (Colombia) so the first visit is the whole story;
 // it leads to the cake if the candles are still lit, to the citas once they are revealed
 const SKIP_FROM = OPEN_AT + 4*HOUR, skip = $('#skip');
-let nearEnd = false;
-function showSkip(){ skip.hidden = now() < SKIP_FROM || nearEnd }
+// hidden once the cake is on screen or behind us (cake or citas reached)
+function showSkip(){ skip.hidden = now() < SKIP_FROM || $('#cumple').getBoundingClientRect().top < innerHeight }
 skip.addEventListener('click', () => { if (revealed) openCitas(); else $('#cumple').scrollIntoView({behavior: 'smooth'}) });
-new IntersectionObserver(es => { nearEnd = es.some(e => e.isIntersecting); showSkip() }).observe($('#cumple'));
-new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)){ nearEnd = true; showSkip() } }).observe($('#citas'));
+let skipTick = 0; addEventListener('scroll', () => { if (!skipTick) skipTick = requestAnimationFrame(() => { skipTick = 0; showSkip() }) }, {passive: true});
 showSkip(); setInterval(showSkip, 30000);
 
 const song = new Audio('audio/cancion.mp3'); song.loop = true;

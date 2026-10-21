@@ -25,5 +25,9 @@ const ICONS = {
   22: I(`<circle cx="50" cy="50" r="36" fill="#1B1A17"/><circle cx="50" cy="50" r="24" fill="none" stroke="#3B3833" stroke-width="2"/><circle cx="50" cy="50" r="11" fill="#EE6A2B"/><circle cx="50" cy="50" r="2" fill="#1B1A17"/><path d="M78 14 l-14 30" stroke="#FBF7EE" stroke-width="4"/>`),
   23: I(`<path d="M12 70 a38 34 0 0 1 76 0z" fill="#F2B83B"/><path d="M20 66 q6 -14 14 -4 q6 -12 14 -2 q6 -12 14 -2 q8 -12 16 2" fill="#8BD448"/><circle cx="36" cy="58" r="5" fill="#D2582E"/><circle cx="60" cy="56" r="5" fill="#D2582E"/>`),
   24: I(`<path d="M28 52 a14 14 0 0 1 4 -27 a18 18 0 0 1 36 0 a14 14 0 0 1 4 27z" fill="#FBF7EE"/><rect x="30" y="52" width="40" height="22" fill="#FBF7EE"/><path d="M40 60 v8 M50 60 v8 M60 60 v8"/><path d="M14 86 h72"/>`),
-  25: I(`<path d="M22 20 h22 q2 24 -11 28 q-13 -4 -11 -28z" fill="#E0457B"/><path d="M33 48 v26 M24 78 h18"/><path d="M56 20 h22 q2 24 -11 28 q-13 -4 -11 -28z" fill="#E0457B"/><path d="M67 48 v26 M58 78 h18"/><path d="M44 18 l6 -8 l6 8" stroke="#F2B83B" stroke-width="4"/>`)
+  25: I(`<path d="M22 20 h22 q2 24 -11 28 q-13 -4 -11 -28z" fill="#E0457B"/><path d="M33 48 v26 M24 78 h18"/><path d="M56 20 h22 q2 24 -11 28 q-13 -4 -11 -28z" fill="#E0457B"/><path d="M67 48 v26 M58 78 h18"/><path d="M44 18 l6 -8 l6 8" stroke="#F2B83B" stroke-width="4"/>`),
+  // escape game: a padlock with its key
+  lock: I(`<path d="M32 46 V34 a18 18 0 0 1 36 0 V46" fill="none" stroke-width="7"/><rect x="22" y="44" width="56" height="42" rx="6" fill="#F2B83B"/><circle cx="50" cy="62" r="6" fill="#1B1A17"/><path d="M50 66 v10" stroke-width="5"/><path d="M80 16 l-8 8 M84 26 h-9" stroke="#E0457B"/>`),
+  // bistro: a cast-iron cocotte with steam
+  pot: I(`<path d="M18 50 h64 v18 a14 14 0 0 1 -14 14 h-36 a14 14 0 0 1 -14 -14z" fill="#D2582E"/><rect x="14" y="44" width="72" height="8" rx="4" fill="#1B1A17"/><circle cx="50" cy="40" r="5" fill="#1B1A17"/><path d="M8 58 h10 M82 58 h10" stroke-width="6"/><path d="M38 30 q-6 -8 0 -16 M52 28 q-6 -8 0 -16 M66 30 q-6 -8 0 -16" fill="none" stroke="#8FC3E6" stroke-width="3"/>`)
 };

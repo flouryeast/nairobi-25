@@ -277,3 +277,12 @@ html.closed,html.closed body{overflow:hidden;height:100%}
 .skip span{display:inline-block;margin-left:2px}
 .skip:hover,.skip:focus-visible{opacity:1}
 .skip:focus-visible{outline:2px solid var(--terra);outline-offset:2px}
+/* back of a card: drawing, title and the little description */
+.card{aspect-ratio:3/4.6}
+.card .b{justify-content:flex-start;gap:4px}
+.card .b svg{width:44%;margin:0 auto}
+.card .b strong{font-size:min(4.8vw,22px)}
+.card .b .desc{font-size:min(3.2vw,13px);line-height:1.25;color:#3A352E}
+.card.long .b svg{width:30%}
+.card.long .b .desc{font-size:min(2.9vw,12px);line-height:1.2}
+.card .b{overflow:hidden}
