@@ -286,3 +286,7 @@ html.closed,html.closed body{overflow:hidden;height:100%}
 .card.long .b svg{width:30%}
 .card.long .b .desc{font-size:min(2.9vw,12px);line-height:1.2}
 .card .b{overflow:hidden}
+/* back of a card fits its content: label pinned on top, drawing + title + description centred in the rest */
+.card{aspect-ratio:3/4.1}
+.card .b{justify-content:center;padding-top:28px;gap:5px}
+.card .b > .m{position:absolute;top:10px;left:12px;right:12px}
